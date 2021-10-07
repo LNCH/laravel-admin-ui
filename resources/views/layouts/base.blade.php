@@ -12,16 +12,17 @@
         @endif
 
         <!-- Fonts -->
-        @stack('fonts')
+        @stack('head_fonts')
 
         <!-- Styles -->
-        @stack('styles')
+        @stack('head_styles')
     </head>
 
     <body class="{{ implode(' ', array_merge($bodyClasses ?? [], ['font-sans', 'antialiased'])) }}">
+        <h1>Base</h1>
         @yield('body')
     </body>
 
     <!-- Scripts -->
-    @stack('scripts')
+    @stack('body_scripts')
 </html>
