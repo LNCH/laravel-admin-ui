@@ -29,6 +29,11 @@ class LaravelAdminUIServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../config/laravel-admin-ui.php' => config_path('laravel-admin-ui.php'),
             ], 'config');
+
+            // Publish public assets
+            $this->publishes([
+                __DIR__.'/../dist' => public_path('laravel-admin-ui'),
+            ], 'assets');
         }
 
         // Register the views for the package
