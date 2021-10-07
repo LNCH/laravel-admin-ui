@@ -33,6 +33,11 @@ class LaravelAdminUIServiceProvider extends ServiceProvider
             // Publish public assets
             $this->publishes([
                 __DIR__.'/../dist' => public_path('laravel-admin-ui'),
+            ], 'public-assets');
+
+            $this->publishes([
+                __DIR__.'/../resources/sass' => base_path('resources/sass'),
+                __DIR__.'/../resources/js' => base_path('resources/js'),
             ], 'assets');
         }
 

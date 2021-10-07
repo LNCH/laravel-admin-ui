@@ -1,11 +1,6 @@
-<html>
-    <head>
-        <title>ADMIN LAYOUT</title>
-    </head>
+@extends(config('laravel-admin-ui.views-namespace', 'laravel-admin-ui').'::layouts.base')
 
-    <body>
-        <h1>Main Content</h1>
-
-        @yield('content')
-    </body>
-</html>
+@section('body')
+    <h1>Main Content</h1>
+    @yield('content')
+@endsection
