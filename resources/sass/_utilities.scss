@@ -1,0 +1,45 @@
+@use "sass:color";
+
+@each $color, $hex in $colors {
+    $hue: color.hue($hex);
+    $sat: color.saturation($hex);
+    $light: color.lightness($hex);
+
+    $lighterVariant: hsl($hue, $sat - 15%, $light + 18%);
+    $lightVariant: hsl($hue, $sat - 7%, $light + 10%);
+    $darkVariant: hsl($hue, $sat + 5%, $light - 10%);
+    $darkerVariant: hsl($hue, $sat + 15%, $light - 20%);
+
+    :root {
+        --color-#{$color}-lighter: #{$lighterVariant};
+        --color-#{$color}-light: #{$lightVariant};
+        --color-#{$color}: #{hsl($hue, $sat, $light)};
+        --color-#{$color}-dark: #{$darkVariant};
+        --color-#{$color}-darker: #{$darkerVariant};
+    }
+
+    .text-#{$color}-lighter { color: $lighterVariant !important; }
+    .text-#{$color}-light { color: $lightVariant !important; }
+    .text-#{$color} { color: $hex !important; }
+    .text-#{$color}-dark { color: $darkVariant !important; }
+    .text-#{$color}-darker { color: $darkerVariant !important; }
+
+    .bg-#{$color}-lighter { background: $lighterVariant !important; }
+    .bg-#{$color}-light { background: $lightVariant !important; }
+    .bg-#{$color} { background: $hex !important; }
+    .bg-#{$color}-dark { background: $darkVariant !important; }
+    .bg-#{$color}-darker { background: $darkerVariant !important; }
+}
+
+@each $color, $hex in $basic-colours {
+    $hue: color.hue($hex);
+    $sat: color.saturation($hex);
+    $light: color.lightness($hex);
+
+    :root {
+        --color-#{$color}: #{hsl($hue, $sat, $light)};
+    }
+
+    .text-#{$color} { color: $hex !important; }
+    .bg-#{$color} { background: $hex !important; }
+}

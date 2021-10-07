@@ -1,3 +1,12 @@
-* {
-    color: red !important;
-}
+// Base Variables, Mixins and Utility Classes
+@import "variables";
+@import "utilities";
+@import "mixins";
+
+// Core Styles & Resets
+@import "core";
+
+// Layout Styles
+@import "layout";
+
+// Component Styles
