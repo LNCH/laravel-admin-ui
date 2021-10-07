@@ -1,6 +1,5 @@
-@extends(config('laravel-admin-ui.views-namespace', 'laravel-admin-ui').'::layouts.base')
+@extends(config('laravel-admin-ui.views-namespace', 'laravel-admin-ui').'::layouts.themes.'.config('laravel-admin-ui.theme', 'default'))
 
-@section('body')
-    <h1>Main Content</h1>
+@section('main_content')
     @yield('content')
 @endsection

@@ -1,0 +1,20 @@
+$colors: (
+    "success": #21AC0C,
+    "danger": #A70000,
+    "info": #00BCDE
+);
+
+$basic-colours: (
+    "lighter-gray": #DDDDDD,
+    "light-gray": #AAAAAA,
+    "gray": #777777,
+    "dark-gray": #555555,
+    "darker-gray": #111111
+);
+
+$breakpoints: (
+    "phone": 599px,
+    "tablet-portrait": 899px,
+    "tablet-landscape": 1199px,
+    "desktop": 1799px
+);

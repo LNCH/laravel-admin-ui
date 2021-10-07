@@ -1,0 +1,92 @@
+.la_page-wrapper {
+    --header-height: 3.5rem;
+    --sidebar-width: 18rem;
+    --main-content-padding: 1rem;
+
+    position: relative;
+    min-height: 100vh;
+    padding-top: calc(var(--header-height) + var(--main-content-padding));
+    padding-right: var(--main-content-padding);
+    padding-bottom: var(--main-content-padding);
+    padding-left: var(--main-content-padding);
+    background: var(--color-lighter-gray);
+
+    @include for-tablet-portrait-up {
+        padding-left: calc(var(--sidebar-width) + var(--main-content-padding));
+    }
+
+    .la_main-header {
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: var(--header-height);
+        background: white;
+        z-index: 300;
+
+        .mobile-nav-toggle {
+            height: 100%;
+            min-width: var(--header-height);
+            font-size: 1.2rem;
+
+            @include for-tablet-portrait-up {
+                display: none;
+            }
+        }
+    }
+
+        //a.home-link {
+        //    display: inline-block;
+        //    height: 100%;
+        //
+        //    @include for-tablet-portrait-up {
+        //        margin-right: auto;
+        //    }
+        //}
+
+        //.application-logo {
+        //    height: 100%;
+        //
+        //    img {
+        //        // This variable allows the height of the logo to be set
+        //        --logo-percentage: 40;
+        //        @include for-tablet-portrait-up {
+        //            --logo-percentage: 55;
+        //        }
+        //
+        //        // These are calculated on the fly, DON'T alter these values
+        //        --max-height: calc((var(--header-height) / 100) * var(--logo-percentage));
+        //        --top-margin: calc((var(--header-height) - var(--max-height)) / 2);
+        //        --left-margin: var(--top-margin);
+        //
+        //        max-height: var(--max-height);
+        //        margin-top: var(--top-margin);
+        //        margin-left: var(--left-margin);
+        //    }
+        //}
+
+    .la_main-sidebar {
+        position: fixed;
+        top: var(--header-height);
+        left: -100%;
+
+        @include for-tablet-portrait-up {
+            left: 0;
+        }
+
+        width: var(--sidebar-width);
+        height: calc(100vh - var(--header-height));
+        background: var(--color-dark-gray);
+        box-shadow: 0 0 6px rgba(12 14 18 / 0.5);
+        z-index: 200;
+        color: white;
+        transition: 0.3s ease all;
+    }
+
+    &.nav-open .la_main-sidebar {
+        left: 0;
+    }
+}
