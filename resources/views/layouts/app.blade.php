@@ -1,6 +1,5 @@
-@extends(config('laravel-admin-ui.views-namespace', 'laravel-admin-ui').'::layouts.themes.default')
+@extends(config('laravel-admin-ui.views-namespace', 'laravel-admin-ui').'::layouts.themes.'.config('laravel-admin-ui.theme', 'default'))
 
 @section('main_content')
-    <h3>Package Layout</h3>
     @yield('content')
 @endsection

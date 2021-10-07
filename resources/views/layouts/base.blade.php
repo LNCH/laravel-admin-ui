@@ -19,7 +19,6 @@
     </head>
 
     <body class="{{ implode(' ', array_merge($bodyClasses ?? [], ['font-sans', 'antialiased'])) }}">
-        <h1>Base</h1>
         @yield('body')
     </body>
 
