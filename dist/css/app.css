@@ -256,6 +256,10 @@ html, body {
   height: 100%;
   width: var(--sidebar-width);
 }
+.la_page-wrapper .la_main-header .center-divider {
+  width: 1px;
+  margin: 0 auto;
+}
 .la_page-wrapper .la_main-sidebar {
   position: fixed;
   top: var(--header-height);

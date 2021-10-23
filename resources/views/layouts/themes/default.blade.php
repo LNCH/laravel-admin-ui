@@ -9,18 +9,24 @@
                     <span class="sr-only">Toggle Mobile Nav</span>
                 </button>
             </div>
+
             {{-- Header Logo --}}
             <div class="header-logo">
                 Laravel Admin
             </div>
+
             {{-- Search Bar --}}
             <div class="search-bar">
                 <x-laravel-admin-ui-search-form />
             </div>
+
+            <div class="center-divider"></div>
+
             {{-- Notifications --}}
             <div class="header-notifications">
                 HN
             </div>
+
             {{-- Account Dropdown --}}
             <div class="account-dropdown">
                 AD
