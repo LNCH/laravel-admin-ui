@@ -278,6 +278,21 @@ html, body {
   height: 100%;
   width: var(--sidebar-width);
 }
+.la_page-wrapper .la_main-header .search-bar {
+  height: 100%;
+}
+.la_page-wrapper .la_main-header .search-bar form {
+  height: 100%;
+  padding: 0.75rem 0;
+}
+.la_page-wrapper .la_main-header .search-bar input {
+  height: 100%;
+  width: 12rem;
+  border: none;
+  border-bottom: 2px solid #d5d5d5;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0;
+}
 .la_page-wrapper .la_main-header .center-divider {
   width: 1px;
   margin: 0 auto;
@@ -325,14 +340,13 @@ html, body {
   transform-origin: center center;
 }
 .menu-bars-icon::before {
-  position: absolute;
   top: calc((var(--bar-height) + var(--space-between)) * -1);
 }
 .menu-bars-icon::after {
-  position: absolute;
   top: calc(var(--bar-height) + var(--space-between));
 }
 .menu-bars-icon::before, .menu-bars-icon::after {
+  position: absolute;
   transition: 0.25s ease transform, 0.25s ease top 0.25s;
 }
 .menu-bars-icon.close-icon {
@@ -340,13 +354,12 @@ html, body {
   transition: 0.25s ease background;
 }
 .menu-bars-icon.close-icon::before {
-  top: 0;
   transform: rotate(45deg);
 }
 .menu-bars-icon.close-icon::after {
-  top: 0;
   transform: rotate(-45deg);
 }
 .menu-bars-icon.close-icon::before, .menu-bars-icon.close-icon::after {
+  top: 0;
   transition: 0.25s ease top, 0.25s ease transform 0.25s;
 }

@@ -30,7 +30,7 @@
             display: grid;
             place-content: center;
             height: 100%;
-            width: var(--header-height);
+            min-width: var(--header-height);
             background: transparent;
             border: none;
             appearance: none;
@@ -54,7 +54,21 @@
         }
 
         .search-bar {
+            height: 100%;
 
+            form {
+                height: 100%;
+                padding: 0.75rem 0;
+            }
+
+            input {
+                height: 100%;
+                width: 12rem;
+                border: none;
+                border-bottom: 2px solid #d5d5d5;
+                padding: 0.25rem 0.5rem;
+                border-radius: 0;
+            }
         }
 
         .center-divider {

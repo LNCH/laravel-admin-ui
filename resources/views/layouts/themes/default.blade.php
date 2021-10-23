@@ -25,12 +25,12 @@
 
             {{-- Notifications --}}
             <div class="header-notifications">
-                HN
+                <button class="header-button">HN</button>
             </div>
 
             {{-- Account Dropdown --}}
             <div class="account-dropdown">
-                AD
+                <button class="header-button">AD</button>
             </div>
         </header>
 
