@@ -8,9 +8,9 @@ class SearchForm extends Component
 {
     public $action;
 
-    public function __construct($action = null)
+    public function __construct($action = '/search')
     {
-        $this->action = $action ?? '/search';
+        $this->action = $action;
     }
 
     public function render()
