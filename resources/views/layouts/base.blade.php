@@ -15,7 +15,7 @@
         @stack('head_fonts')
 
         <!-- Web Fonts -->
-        @if (count(config('laravel-admin-ui.google_fonts', [])) > 1)
+        @if (count(config('laravel-admin-ui.google_fonts', [])) > 0)
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             @foreach (config('laravel-admin-ui.google_fonts', []) as $font)
