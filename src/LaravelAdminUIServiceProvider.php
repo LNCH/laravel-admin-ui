@@ -3,6 +3,7 @@
 namespace LNCH\LaravelAdminUI;
 
 use Illuminate\Support\ServiceProvider;
+use LNCH\LaravelAdminUI\View\Components\SearchForm;
 
 class LaravelAdminUIServiceProvider extends ServiceProvider
 {
@@ -44,5 +45,10 @@ class LaravelAdminUIServiceProvider extends ServiceProvider
         // Register the views for the package
         $viewsNamespace = config('laravel-admin-ui.views-namespace', 'laravel-admin-ui');
         $this->loadViewsFrom(__DIR__.'/../resources/views', $viewsNamespace);
+
+        // Load in View Components
+        $this->loadViewComponentsAs('laravel-admin-ui', [
+            SearchForm::class,
+        ]);
     }
 }
