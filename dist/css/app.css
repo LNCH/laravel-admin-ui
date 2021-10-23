@@ -1,4 +1,8 @@
 :root {
+  --page-header-background: white;
+}
+
+:root {
   --color-success-lighter: #4cde36;
   --color-success-light: #30d318;
   --color-success: #21ac0c;
@@ -243,19 +247,20 @@ html, body {
 .la_page-wrapper .la_main-header {
   position: fixed;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   top: 0;
   left: 0;
   width: 100%;
   height: var(--header-height);
-  background: white;
+  background: var(--page-header-background);
   z-index: 300;
 }
 .la_page-wrapper .la_main-header .header-button {
   display: grid;
   place-content: center;
   height: 100%;
-  width: var(--header-height);
+  min-width: var(--header-height);
+  padding: 0 1rem;
   background: transparent;
   border: none;
   -webkit-appearance: none;
@@ -276,10 +281,21 @@ html, body {
   display: grid;
   place-content: center;
   height: 100%;
-  width: var(--sidebar-width);
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .la_page-wrapper .la_main-header .header-logo {
+    width: var(--sidebar-width);
+  }
 }
 .la_page-wrapper .la_main-header .search-bar {
+  display: none;
   height: 100%;
+}
+@media (min-width: 600px) {
+  .la_page-wrapper .la_main-header .search-bar {
+    display: block;
+  }
 }
 .la_page-wrapper .la_main-header .search-bar form {
   height: 100%;
@@ -294,8 +310,37 @@ html, body {
   border-radius: 0;
 }
 .la_page-wrapper .la_main-header .center-divider {
+  display: none;
   width: 1px;
   margin: 0 auto;
+}
+@media (min-width: 600px) {
+  .la_page-wrapper .la_main-header .center-divider {
+    display: block;
+  }
+}
+.la_page-wrapper .la_main-header .header-notifications {
+  display: none;
+}
+@media (min-width: 600px) {
+  .la_page-wrapper .la_main-header .header-notifications {
+    display: block;
+  }
+}
+.la_page-wrapper .la_main-header .account-dropdown .header-button {
+  display: flex;
+  align-items: center;
+}
+.la_page-wrapper .la_main-header .account-dropdown .user-name {
+  display: none;
+}
+@media (min-width: 600px) {
+  .la_page-wrapper .la_main-header .account-dropdown .user-name {
+    display: inline;
+  }
+  .la_page-wrapper .la_main-header .account-dropdown .user-icon {
+    margin-right: 0.5rem;
+  }
 }
 .la_page-wrapper .la_main-sidebar {
   position: fixed;
@@ -325,10 +370,11 @@ html, body {
   --bar-width: 1.25rem;
   --bar-border-radius: 1px;
   --bar-color: #3c3c3c;
+  --transition-speed: 0.1s;
   display: block;
   position: relative;
   background: var(--bar-color);
-  transition: 0.25s ease background 0.25s;
+  transition: var(--transition-speed) ease background var(--transition-speed);
 }
 .menu-bars-icon, .menu-bars-icon::before, .menu-bars-icon::after {
   content: "";
@@ -347,11 +393,11 @@ html, body {
 }
 .menu-bars-icon::before, .menu-bars-icon::after {
   position: absolute;
-  transition: 0.25s ease transform, 0.25s ease top 0.25s;
+  transition: var(--transition-speed) ease transform, var(--transition-speed) ease top var(--transition-speed);
 }
 .menu-bars-icon.close-icon {
   background: transparent;
-  transition: 0.25s ease background;
+  transition: var(--transition-speed) ease background;
 }
 .menu-bars-icon.close-icon::before {
   transform: rotate(45deg);
@@ -361,5 +407,43 @@ html, body {
 }
 .menu-bars-icon.close-icon::before, .menu-bars-icon.close-icon::after {
   top: 0;
-  transition: 0.25s ease top, 0.25s ease transform 0.25s;
+  transition: var(--transition-speed) ease top, var(--transition-speed) ease transform var(--transition-speed);
+}
+
+.user-icon {
+  --icon-size: 1.25rem;
+  --icon-color: #b0b0b0;
+  position: relative;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  overflow: hidden;
+  border-radius: 50%;
+}
+.user-icon::before, .user-icon::after {
+  content: "";
+}
+.user-icon::before {
+  width: 75%;
+  height: 100%;
+  background: var(--icon-color);
+  display: block;
+  border-radius: calc(var(--icon-size) / 2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.user-icon::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 50%;
+  background: var(--icon-color);
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--page-header-background);
 }

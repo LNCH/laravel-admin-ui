@@ -18,12 +18,12 @@
     .la_main-header {
         position: fixed;
         display: flex;
-        align-items: center;
+        align-items: stretch;
         top: 0;
         left: 0;
         width: 100%;
         height: var(--header-height);
-        background: white;
+        background: var(--page-header-background);
         z-index: 300;
 
         & .header-button {
@@ -31,6 +31,7 @@
             place-content: center;
             height: 100%;
             min-width: var(--header-height);
+            padding: 0 1rem;
             background: transparent;
             border: none;
             appearance: none;
@@ -50,11 +51,20 @@
             display: grid;
             place-content: center;
             height: 100%;
-            width: var(--sidebar-width);
+            width: 100%;
+
+            @include for-tablet-portrait-up {
+                width: var(--sidebar-width);
+            }
         }
 
         .search-bar {
+            display: none;
             height: 100%;
+
+            @include for-tablet-portrait-up {
+                display: block;
+            }
 
             form {
                 height: 100%;
@@ -72,8 +82,42 @@
         }
 
         .center-divider {
+            display: none;
             width: 1px;
             margin: 0 auto;
+
+            @include for-tablet-portrait-up {
+                display: block;
+            }
+        }
+
+        .header-notifications {
+            display: none;
+
+            @include for-tablet-portrait-up {
+                display: block;
+            }
+        }
+
+        .account-dropdown {
+            .header-button {
+                display: flex;
+                align-items: center;
+            }
+
+            .user-name {
+                display: none;
+            }
+
+            @include for-tablet-portrait-up {
+                .user-name {
+                    display: inline;
+                }
+
+                .user-icon {
+                    margin-right: 0.5rem;
+                }
+            }
         }
     }
 
@@ -118,60 +162,5 @@
 
     &.nav-open .la_main-sidebar {
         left: 0;
-    }
-}
-
-.menu-bars-icon {
-    --bar-height: 2px;
-    --space-between: 4px;
-    --bar-width: 1.25rem;
-    --bar-border-radius: 1px;
-    --bar-color: #3c3c3c;
-
-    display: block;
-    position: relative;
-    background: var(--bar-color);
-    transition: 0.25s ease background 0.25s;
-
-    &, &::before, &::after {
-        content: '';
-        display: block;
-        height: var(--bar-height);
-        width: var(--bar-width);
-        background: var(--bar-color);
-        border-radius: var(--bar-border-radius);
-        transform-origin: center center;
-    }
-
-    &::before {
-        top: calc((var(--bar-height) + var(--space-between)) * -1);
-    }
-
-    &::after {
-        top: calc(var(--bar-height) + var(--space-between));
-    }
-
-    &::before, &::after {
-        position: absolute;
-        transition: 0.25s ease transform, 0.25s ease top 0.25s;
-    }
-
-    // Cross animation
-    &.close-icon {
-        background: transparent;
-        transition: 0.25s ease background;
-
-        &::before {
-            transform: rotate(45deg);
-        }
-
-        &::after {
-            transform: rotate(-45deg);
-        }
-
-        &::before, &::after {
-            top: 0;
-            transition: 0.25s ease top, 0.25s ease transform 0.25s;
-        }
     }
 }
