@@ -5,7 +5,7 @@
         <header class="la_main-header">
             {{-- Mobile Nav Toggle --}}
             <div class="mobile-nav-toggle">
-                <button>
+                <button id="la_mobile-nav-toggle-button">
                     <span class="sr-only">Toggle Mobile Nav</span>
                 </button>
             </div>
@@ -32,9 +32,11 @@
                 AD
             </div>
         </header>
+
         <section class="la_main-sidebar">
             Main Nav
         </section>
+
         <main class="la_main-content">
             <header class="la_content-header">
                 Content header
