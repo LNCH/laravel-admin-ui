@@ -10,7 +10,8 @@ class SearchForm extends Component
 
     public function __construct($action = '/search')
     {
-        $this->action = $action;
+        $defaultAction = config('laravel-admin-ui.search-form-action');
+        $this->action = $defaultAction;
     }
 
     public function render()
