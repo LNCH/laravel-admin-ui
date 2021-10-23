@@ -15,7 +15,7 @@
             </div>
             {{-- Search Bar --}}
             <div class="search-bar">
-                <x-laravel-admin-ui::search-form />
+                <x-laravel-admin-ui-search-form />
             </div>
             {{-- Notifications --}}
             <div class="header-notifications">

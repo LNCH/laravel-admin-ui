@@ -42,13 +42,13 @@ class LaravelAdminUIServiceProvider extends ServiceProvider
             ], 'assets');
         }
 
-        // Register the views for the package
-        $viewsNamespace = config('laravel-admin-ui.views-namespace', 'laravel-admin-ui');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', $viewsNamespace);
-
         // Load in View Components
         $this->loadViewComponentsAs('laravel-admin-ui', [
             SearchForm::class,
         ]);
+
+        // Register the views for the package
+        $viewsNamespace = config('laravel-admin-ui.views-namespace', 'laravel-admin-ui');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', $viewsNamespace);
     }
 }
