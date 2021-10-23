@@ -20,7 +20,15 @@ __webpack_require__(/*! ./navigation */ "./resources/js/navigation.js");
 var mobileNavToggle = document.getElementById('la_mobile-nav-toggle-button');
 var pageWrapper = document.querySelector('.la_page-wrapper');
 mobileNavToggle.addEventListener('click', function () {
-  pageWrapper.classList.toggle('nav-open');
+  if (pageWrapper.classList.contains('nav-open')) {
+    // Closing the nav...
+    pageWrapper.classList.remove('nav-open');
+    mobileNavToggle.querySelector('.menu-bars-icon').classList.remove('close-icon');
+  } else {
+    // Open that nav...
+    pageWrapper.classList.add('nav-open');
+    mobileNavToggle.querySelector('.menu-bars-icon').classList.add('close-icon');
+  }
 });
 
 /***/ }),

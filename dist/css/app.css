@@ -212,6 +212,17 @@ html, body {
   font-family: "Ubuntu";
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 .la_page-wrapper {
   --header-height: 3.5rem;
   --sidebar-width: 18rem;
@@ -239,6 +250,17 @@ html, body {
   height: var(--header-height);
   background: white;
   z-index: 300;
+}
+.la_page-wrapper .la_main-header .header-button {
+  display: grid;
+  place-content: center;
+  height: 100%;
+  width: var(--header-height);
+  background: transparent;
+  border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .la_page-wrapper .la_main-header .mobile-nav-toggle {
   height: 100%;
@@ -280,4 +302,51 @@ html, body {
 }
 .la_page-wrapper.nav-open .la_main-sidebar {
   left: 0;
+}
+
+.menu-bars-icon {
+  --bar-height: 2px;
+  --space-between: 4px;
+  --bar-width: 1.25rem;
+  --bar-border-radius: 1px;
+  --bar-color: #3c3c3c;
+  display: block;
+  position: relative;
+  background: var(--bar-color);
+  transition: 0.25s ease background 0.25s;
+}
+.menu-bars-icon, .menu-bars-icon::before, .menu-bars-icon::after {
+  content: "";
+  display: block;
+  height: var(--bar-height);
+  width: var(--bar-width);
+  background: var(--bar-color);
+  border-radius: var(--bar-border-radius);
+  transform-origin: center center;
+}
+.menu-bars-icon::before {
+  position: absolute;
+  top: calc((var(--bar-height) + var(--space-between)) * -1);
+}
+.menu-bars-icon::after {
+  position: absolute;
+  top: calc(var(--bar-height) + var(--space-between));
+}
+.menu-bars-icon::before, .menu-bars-icon::after {
+  transition: 0.25s ease transform, 0.25s ease top 0.25s;
+}
+.menu-bars-icon.close-icon {
+  background: transparent;
+  transition: 0.25s ease background;
+}
+.menu-bars-icon.close-icon::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+.menu-bars-icon.close-icon::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+.menu-bars-icon.close-icon::before, .menu-bars-icon.close-icon::after {
+  transition: 0.25s ease top, 0.25s ease transform 0.25s;
 }
