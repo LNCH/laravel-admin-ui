@@ -72,11 +72,6 @@
         position: fixed;
         top: var(--header-height);
         left: -100%;
-
-        @include for-tablet-portrait-up {
-            left: 0;
-        }
-
         width: var(--sidebar-width);
         height: calc(100vh - var(--header-height));
         background: var(--color-dark-gray);
@@ -84,6 +79,11 @@
         z-index: 200;
         color: white;
         transition: 0.3s ease all;
+
+        @include for-tablet-portrait-up {
+            left: 0;
+            transition: none;
+        }
     }
 
     &.nav-open .la_main-sidebar {

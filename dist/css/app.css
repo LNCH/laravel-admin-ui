@@ -265,6 +265,7 @@ html, body {
 @media (min-width: 600px) {
   .la_page-wrapper .la_main-sidebar {
     left: 0;
+    transition: none;
   }
 }
 .la_page-wrapper.nav-open .la_main-sidebar {
