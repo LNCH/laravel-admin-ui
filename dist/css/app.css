@@ -1,5 +1,6 @@
 :root {
   --page-header-background: white;
+  --main-navigation-background: #363e54;
 }
 
 :root {
@@ -348,7 +349,7 @@ html, body {
   left: -100%;
   width: var(--sidebar-width);
   height: calc(100vh - var(--header-height));
-  background: var(--color-dark-gray);
+  background: var(--main-navigation-background);
   box-shadow: 0 0 6px rgba(12, 14, 18, 0.5);
   z-index: 200;
   color: white;
