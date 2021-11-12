@@ -40,6 +40,10 @@ class LaravelAdminUIServiceProvider extends ServiceProvider
                 __DIR__.'/../resources/sass' => base_path('resources/sass'),
                 __DIR__.'/../resources/js' => base_path('resources/js'),
             ], 'assets');
+
+            $this->publishes([
+                __DIR__.'/../resources/views/partials' => resource_path('views/vendor/laravel-admin-ui/partials'),
+            ], 'partial-views');
         }
 
         // Load in View Components
