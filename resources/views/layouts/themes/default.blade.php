@@ -13,7 +13,7 @@
 
             {{-- Header Logo --}}
             <div class="header-logo">
-                Laravel Admin
+                <img src="{{ asset('laravel-admin-ui/images/header-logo.svg') }}" alt="Laravel Admin" />
             </div>
 
             {{-- Search Bar --}}
