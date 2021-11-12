@@ -39,7 +39,36 @@
         </header>
 
         <section class="la_main-sidebar">
-            Main Nav
+            <nav class="main-navigation">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Users</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Orders</span>
+                            <span class="counter">38</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </section>
 
         <main class="la_main-content">

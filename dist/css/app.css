@@ -365,6 +365,36 @@ html, body {
   left: 0;
 }
 
+.la_page-wrapper .main-navigation ul {
+  margin: 1rem 0;
+  padding: 0;
+}
+.la_page-wrapper .main-navigation ul li a {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  color: white;
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.la_page-wrapper .main-navigation ul li:hover > a {
+  background: rgba(255, 255, 255, 0.2);
+}
+.la_page-wrapper .main-navigation ul li .counter {
+  display: inline-block;
+  background: white;
+  margin-left: auto;
+  color: var(--main-navigation-background);
+  font-size: 0.8em;
+  padding: 0.25rem 0.25rem 0.25rem 0.3rem;
+  text-align: center;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
 .menu-bars-icon {
   --bar-height: 2px;
   --space-between: 4px;
