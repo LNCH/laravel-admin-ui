@@ -1,4 +1,7 @@
 {
     "/dist/js/app.js": "/dist/js/app.js",
-    "/dist/css/app.css": "/dist/css/app.css"
+    "/dist/css/app.css": "/dist/css/app.css",
+    "/dist/images/favicon.ico": "/dist/images/favicon.ico",
+    "/dist/images/favicon.svg": "/dist/images/favicon.svg",
+    "/dist/images/header-logo.svg": "/dist/images/header-logo.svg"
 }
