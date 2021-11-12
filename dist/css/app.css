@@ -364,6 +364,19 @@ html, body {
 .la_page-wrapper.nav-open .la_main-sidebar {
   left: 0;
 }
+.la_page-wrapper .la_main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--header-height) - var(--main-content-padding) * 2);
+}
+.la_page-wrapper .la_content-footer {
+  -webkit-margin-before: auto;
+          margin-block-start: auto;
+  text-align: center;
+  padding: 1rem 0 0.5rem 0;
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
 
 .la_page-wrapper .main-navigation ul {
   margin: 1rem 0;
