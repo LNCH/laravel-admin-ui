@@ -3,6 +3,8 @@
 namespace LNCH\LaravelAdminUI;
 
 use Illuminate\Support\ServiceProvider;
+use LNCH\LaravelAdminUI\View\Components\NavigationMenuItem;
+use LNCH\LaravelAdminUI\View\Components\NavigationMenuTitle;
 use LNCH\LaravelAdminUI\View\Components\SearchForm;
 
 class LaravelAdminUIServiceProvider extends ServiceProvider
@@ -49,6 +51,8 @@ class LaravelAdminUIServiceProvider extends ServiceProvider
         // Load in View Components
         $this->loadViewComponentsAs('laravel-admin-ui', [
             SearchForm::class,
+            NavigationMenuItem::class,
+            NavigationMenuTitle::class,
         ]);
 
         // Register the views for the package

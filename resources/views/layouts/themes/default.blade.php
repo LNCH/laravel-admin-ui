@@ -39,36 +39,7 @@
         </header>
 
         <section class="la_main-sidebar">
-            <nav class="main-navigation">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Users</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Products</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Orders</span>
-                            <span class="counter">38</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Settings</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            @include(config('laravel-admin-ui.views-namespace', 'laravel-admin-ui').'::partials.main-navigation')
         </section>
 
         <main class="la_main-content">

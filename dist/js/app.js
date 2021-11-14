@@ -30,6 +30,15 @@ mobileNavToggle.addEventListener('click', function () {
     mobileNavToggle.querySelector('.menu-bars-icon').classList.add('close-icon');
   }
 });
+document.querySelectorAll('button.toggle-child-menu').forEach(function (button) {
+  button.addEventListener('click', function (event) {
+    if (button.getAttribute('aria-expanded') === 'true') {
+      button.setAttribute('aria-expanded', 'false');
+    } else {
+      button.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
 
 /***/ }),
 

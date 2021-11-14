@@ -4,8 +4,52 @@
         padding: 0;
 
         li {
+            list-style-type: none;
+
+            &.has-sub-menu {
+                display: flex;
+                flex-wrap: wrap;
+                overflow: hidden;
+
+                ul {
+                    flex-basis: 100%;
+                    margin: 0;
+                    padding-left: 1.5rem;
+
+                    pointer-events: none;
+                    max-height: 1px;
+                    opacity: 0;
+
+                    li::before {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        width: 1px;
+                        height: 100%;
+                        top: 0;
+                        background: white;
+                        opacity: 0.2;
+                    }
+
+                    li::after {
+                        content: "";
+                        position: absolute;
+                        top: 1.6rem;
+                        left: 1px;
+                        height: 1px;
+                        width: 0.5rem;
+                        background: white;
+                        opacity: 0.2;
+                    }
+                }
+            }
+
             a {
                 display: flex;
+                flex: 1;
+            }
+
+            a, .toggle-child-menu {
                 align-items: center;
                 padding: 1rem 1.25rem;
                 color: white;
@@ -15,7 +59,34 @@
                 letter-spacing: 1px;
             }
 
-            &:hover > a {
+            // Toggle button
+            .toggle-child-menu {
+                background: transparent;
+                border: none;
+                appearance: none;
+
+                // The state when the child menu is closed...
+                &[aria-expanded="false"] {
+                    .close-menu {
+                        display: none;
+                    }
+
+                }
+                // The state when the child menu is open...
+                &[aria-expanded="true"] {
+                    .expand-menu {
+                        display: none;
+                    }
+
+                    & + ul {
+                        max-height: max-content;
+                        opacity: 1;
+                        pointer-events: all;
+                    }
+                }
+            }
+
+            &:hover > :is(a, .toggle-child-menu) {
                 background: rgba(255, 255, 255, 0.2);
             }
 
@@ -30,7 +101,52 @@
                 border-radius: 0.25rem;
                 font-weight: 600;
                 letter-spacing: 0;
+                min-width: 1.4rem;
             }
+
+            .icon {
+                display: grid;
+                place-content: center;
+                width: 1.2rem;
+                margin-right: 1rem;
+
+                img {
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
+
+            &.is-active {
+                background: rgba(255, 255, 255, 0.9);
+
+                a {
+                    color: var(--main-navigation-background);
+                }
+
+                .counter {
+                    color: white;
+                    background: var(--main-navigation-background);
+                }
+            }
+
+            &.is-disabled {
+                opacity: 0.4;
+                cursor: not-allowed;
+
+                a {
+                    pointer-events: none;
+                }
+            }
+        }
+
+        li.menu-title {
+            font-size: 0.7em;
+            padding: 1rem 1.25rem 0.5rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+            opacity: 0.75;
+            color: inherit;
         }
     }
 }

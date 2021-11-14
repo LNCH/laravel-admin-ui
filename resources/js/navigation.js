@@ -13,3 +13,13 @@ mobileNavToggle.addEventListener('click', () => {
         mobileNavToggle.querySelector('.menu-bars-icon').classList.add('close-icon');
     }
 });
+
+document.querySelectorAll('button.toggle-child-menu').forEach(button => {
+    button.addEventListener('click', event => {
+        if (button.getAttribute('aria-expanded') === 'true') {
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            button.setAttribute('aria-expanded', 'true');
+        }
+    })
+})
