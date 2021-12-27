@@ -50,7 +50,7 @@ class LaravelAdminUIServiceProvider extends ServiceProvider
         }
 
         // Load in View Components
-        $this->loadViewComponentsAs('laravel-admin-ui', [
+        $this->loadViewComponentsAs(config('laravel-admin-ui.views-namespace'), [
             SearchForm::class,
             NavigationMenuItem::class,
             NavigationMenuTitle::class,
