@@ -1,9 +1,4 @@
 :root {
-  --page-header-background: white;
-  --main-navigation-background: #363e54;
-}
-
-:root {
   --color-success-lighter: #4cde36;
   --color-success-light: #30d318;
   --color-success: #21ac0c;
@@ -207,6 +202,29 @@
   background: #111111 !important;
 }
 
+:root {
+  /* -----------------------------
+      Header
+  ----------------------------- */
+  /* Defines the height of the main header */
+  --main-header-height: 3.5rem;
+  /* Defines the background colour of the main header */
+  --main-header-background: white;
+  /* Sets the horizontal padding on any header buttons */
+  --main-header-button-x-padding: 1rem;
+  /* -----------------------------
+      Main Sidebar
+  ----------------------------- */
+  --main-sidebar-width: 18rem;
+  /* Sets the background colour of the main sidebar */
+  --main-sidebar-background: #363e54;
+  /* -----------------------------
+      Main Content Section
+  ----------------------------- */
+  --main-content-padding: 1rem;
+  --main-content-background: var(--color-lighter-gray);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -229,20 +247,18 @@ html, body {
 }
 
 .la_page-wrapper {
-  --header-height: 3.5rem;
-  --sidebar-width: 18rem;
-  --main-content-padding: 1rem;
+  --padding-top: calc(var(--main-header-height) + var(--main-content-padding));
+  --padding-right: var(--main-content-padding);
+  --padding-bottom: var(--main-content-padding);
+  --padding-left: var(--main-content-padding);
   position: relative;
+  padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
   min-height: 100vh;
-  padding-top: calc(var(--header-height) + var(--main-content-padding));
-  padding-right: var(--main-content-padding);
-  padding-bottom: var(--main-content-padding);
-  padding-left: var(--main-content-padding);
-  background: var(--color-lighter-gray);
+  background: var(--main-content-background);
 }
 @media (min-width: 600px) {
   .la_page-wrapper {
-    padding-left: calc(var(--sidebar-width) + var(--main-content-padding));
+    padding-left: calc(var(--main-sidebar-width) + var(--main-content-padding));
   }
 }
 .la_page-wrapper .la_main-header {
@@ -252,16 +268,16 @@ html, body {
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--header-height);
-  background: var(--page-header-background);
-  z-index: 300;
+  height: var(--main-header-height);
+  background: var(--main-header-background);
+  z-index: 10;
 }
 .la_page-wrapper .la_main-header .header-button {
   display: grid;
   place-content: center;
   height: 100%;
-  min-width: var(--header-height);
-  padding: 0 1rem;
+  min-width: var(--main-header-height);
+  padding: 0 var(--main-header-button-x-padding);
   background: transparent;
   border: none;
   -webkit-appearance: none;
@@ -270,7 +286,7 @@ html, body {
 }
 .la_page-wrapper .la_main-header .mobile-nav-toggle {
   height: 100%;
-  min-width: var(--header-height);
+  min-width: var(--main-header-height);
   font-size: 1.2rem;
 }
 @media (min-width: 600px) {
@@ -286,7 +302,7 @@ html, body {
 }
 @media (min-width: 600px) {
   .la_page-wrapper .la_main-header .header-logo {
-    width: var(--sidebar-width);
+    width: var(--main-sidebar-width);
   }
 }
 .la_page-wrapper .la_main-header .search-bar {
@@ -345,13 +361,13 @@ html, body {
 }
 .la_page-wrapper .la_main-sidebar {
   position: fixed;
-  top: var(--header-height);
+  top: var(--main-header-height);
   left: -100%;
-  width: var(--sidebar-width);
-  height: calc(100vh - var(--header-height));
-  background: var(--main-navigation-background);
+  width: var(--main-sidebar-width);
+  height: calc(100vh - var(--main-header-height));
+  background: var(--main-sidebar-background);
   box-shadow: 0 0 6px rgba(12, 14, 18, 0.5);
-  z-index: 200;
+  z-index: 5;
   color: white;
   transition: 0.3s ease all;
 }
@@ -367,7 +383,7 @@ html, body {
 .la_page-wrapper .la_main-content {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - var(--header-height) - var(--main-content-padding) * 2);
+  min-height: calc(100vh - var(--main-header-height) - var(--main-content-padding) * 2);
 }
 .la_page-wrapper .la_content-footer {
   -webkit-margin-before: auto;
@@ -383,6 +399,7 @@ html, body {
   padding: 0;
 }
 .la_page-wrapper .main-navigation ul li {
+  position: relative;
   list-style-type: none;
 }
 .la_page-wrapper .main-navigation ul li.has-sub-menu {
@@ -400,9 +417,23 @@ html, body {
 }
 .la_page-wrapper .main-navigation ul li.has-sub-menu ul li::before {
   content: "";
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  top: 0;
+  background: white;
+  opacity: 0.2;
 }
 .la_page-wrapper .main-navigation ul li.has-sub-menu ul li::after {
   content: "";
+  position: absolute;
+  top: 1.6rem;
+  left: 1px;
+  height: 1px;
+  width: 0.5rem;
+  background: white;
+  opacity: 0.2;
 }
 .la_page-wrapper .main-navigation ul li a {
   display: flex;
@@ -444,7 +475,7 @@ html, body {
   display: inline-block;
   background: white;
   margin-left: auto;
-  color: var(--main-navigation-background);
+  color: var(--main-sidebar-background);
   font-size: 0.8em;
   padding: 0.25rem 0.25rem 0.25rem 0.3rem;
   text-align: center;
@@ -467,11 +498,11 @@ html, body {
   background: rgba(255, 255, 255, 0.9);
 }
 .la_page-wrapper .main-navigation ul li.is-active a {
-  color: var(--main-navigation-background);
+  color: var(--main-sidebar-background);
 }
 .la_page-wrapper .main-navigation ul li.is-active .counter {
   color: white;
-  background: var(--main-navigation-background);
+  background: var(--main-sidebar-background);
 }
 .la_page-wrapper .main-navigation ul li.is-disabled {
   opacity: 0.4;
@@ -571,5 +602,5 @@ html, body {
   position: absolute;
   transform: translateX(-50%);
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--page-header-background);
+  border: 1px solid var(--main-header-background);
 }

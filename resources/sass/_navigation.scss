@@ -4,6 +4,7 @@
         padding: 0;
 
         li {
+            position: relative;
             list-style-type: none;
 
             &.has-sub-menu {
@@ -94,7 +95,7 @@
                 display: inline-block;
                 background: white;
                 margin-left: auto;
-                color: var(--main-navigation-background);
+                color: var(--main-sidebar-background);
                 font-size: 0.8em;
                 padding: 0.25rem 0.25rem 0.25rem 0.3rem;
                 text-align: center;
@@ -120,12 +121,12 @@
                 background: rgba(255, 255, 255, 0.9);
 
                 a {
-                    color: var(--main-navigation-background);
+                    color: var(--main-sidebar-background);
                 }
 
                 .counter {
                     color: white;
-                    background: var(--main-navigation-background);
+                    background: var(--main-sidebar-background);
                 }
             }
 

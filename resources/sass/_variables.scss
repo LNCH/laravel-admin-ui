@@ -1,26 +1,30 @@
-$colors: (
-    "success": #21AC0C,
-    "danger": #A70000,
-    "info": #00BCDE
-);
-
-$basic-colours: (
-    "lighter-gray": #DDDDDD,
-    "light-gray": #AAAAAA,
-    "gray": #777777,
-    "dark-gray": #555555,
-    "darker-gray": #111111
-);
-
-$breakpoints: (
-    "phone": 599px,
-    "tablet-portrait": 899px,
-    "tablet-landscape": 1199px,
-    "desktop": 1799px
-);
-
 :root {
-    --page-header-background: white;
+    /* -----------------------------
+        Header
+    ----------------------------- */
 
-    --main-navigation-background: #363e54;
+    /* Defines the height of the main header */
+    --main-header-height: 3.5rem;
+
+    /* Defines the background colour of the main header */
+    --main-header-background: white;
+
+    /* Sets the horizontal padding on any header buttons */
+    --main-header-button-x-padding: 1rem;
+
+    /* -----------------------------
+        Main Sidebar
+    ----------------------------- */
+
+    --main-sidebar-width: 18rem;
+
+    /* Sets the background colour of the main sidebar */
+    --main-sidebar-background: #363e54;
+
+    /* -----------------------------
+        Main Content Section
+    ----------------------------- */
+
+    --main-content-padding: 1rem;
+    --main-content-background: var(--color-lighter-gray);
 }

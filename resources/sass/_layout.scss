@@ -1,18 +1,19 @@
 .la_page-wrapper {
-    --header-height: 3.5rem;
-    --sidebar-width: 18rem;
-    --main-content-padding: 1rem;
+    // The padding here dictates the area of the main content. This is to ensure
+    // that scroll position within the main content section is maintained on page
+    // refreshing
+    --padding-top: calc(var(--main-header-height) + var(--main-content-padding));
+    --padding-right: var(--main-content-padding);
+    --padding-bottom: var(--main-content-padding);
+    --padding-left: var(--main-content-padding);
 
     position: relative;
+    padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
     min-height: 100vh;
-    padding-top: calc(var(--header-height) + var(--main-content-padding));
-    padding-right: var(--main-content-padding);
-    padding-bottom: var(--main-content-padding);
-    padding-left: var(--main-content-padding);
-    background: var(--color-lighter-gray);
+    background: var(--main-content-background);
 
     @include for-tablet-portrait-up {
-        padding-left: calc(var(--sidebar-width) + var(--main-content-padding));
+        padding-left: calc(var(--main-sidebar-width) + var(--main-content-padding));
     }
 
     .la_main-header {
@@ -22,24 +23,24 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: var(--header-height);
-        background: var(--page-header-background);
-        z-index: 300;
+        height: var(--main-header-height);
+        background: var(--main-header-background);
+        z-index: 10;
 
         & .header-button {
             display: grid;
             place-content: center;
             height: 100%;
-            min-width: var(--header-height);
-            padding: 0 1rem;
-            background: transparent;
+            min-width: var(--main-header-height);
+            padding: 0 var(--main-header-button-x-padding);
+            background: transparent; // TODO: Variables for these...
             border: none;
             appearance: none;
         }
 
         .mobile-nav-toggle {
             height: 100%;
-            min-width: var(--header-height);
+            min-width: var(--main-header-height);
             font-size: 1.2rem;
 
             @include for-tablet-portrait-up {
@@ -54,7 +55,7 @@
             width: 100%;
 
             @include for-tablet-portrait-up {
-                width: var(--sidebar-width);
+                width: var(--main-sidebar-width);
             }
         }
 
@@ -123,13 +124,13 @@
 
     .la_main-sidebar {
         position: fixed;
-        top: var(--header-height);
+        top: var(--main-header-height);
         left: -100%;
-        width: var(--sidebar-width);
-        height: calc(100vh - var(--header-height));
-        background: var(--main-navigation-background);
+        width: var(--main-sidebar-width);
+        height: calc(100vh - var(--main-header-height));
+        background: var(--main-sidebar-background);
         box-shadow: 0 0 6px rgba(12 14 18 / 0.5);
-        z-index: 200;
+        z-index: 5;
         color: white;
         transition: 0.3s ease all;
 
@@ -146,7 +147,7 @@
     .la_main-content {
         display: flex;
         flex-direction: column;
-        min-height: calc(100vh - var(--header-height) - (var(--main-content-padding) * 2));
+        min-height: calc(100vh - var(--main-header-height) - (var(--main-content-padding) * 2));
     }
 
     .la_content-footer {
