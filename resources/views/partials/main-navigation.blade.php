@@ -12,11 +12,12 @@
 
 <nav class="main-navigation">
     <ul>
-
+        {{-- Example of an optional menu title, to separate the nav --}}
         <x-laravel-admin-ui-navigation-menu-title>
             Main
         </x-laravel-admin-ui-navigation-menu-title>
 
+        {{-- Example of a nav link using a counter, route and an optional icon slot --}}
         <x-laravel-admin-ui-navigation-menu-item
             link-text="Dashboard"
             counter="12"
@@ -27,6 +28,7 @@
             </x-slot>
         </x-laravel-admin-ui-navigation-menu-item>
 
+        {{-- Example of a menu item that has a counter active, and is currently active --}}
         <x-laravel-admin-ui-navigation-menu-item
             link-text="Bookings"
             route="https://google.com"
@@ -34,79 +36,55 @@
             counter="6"
         />
 
+        {{-- Example of a disabled nav link - this will not be clickable --}}
         <x-laravel-admin-ui-navigation-menu-item
             link-text="Sales"
             route="https://google.com"
             disabled="true"
-            counter="4"
         />
 
-        <li>
-            <a href="#">
-                <span>Users</span>
-            </a>
-        </li>
+        {{-- Example of a nav link with no associated route (links to '#') --}}
+        <x-laravel-admin-ui-navigation-menu-item
+            link-text="Users"
+        />
 
         <x-laravel-admin-ui-navigation-menu-title>
             Other Stuff
         </x-laravel-admin-ui-navigation-menu-title>
 
-        <li>
-            <a href="#">
-                <span>Products</span>
-            </a>
-        </li>
-        <li class="has-sub-menu">
-            <a href="#">
-                <span>Orders</span>
-            </a>
-            <button class="toggle-child-menu" aria-controls="sub-menu-1" aria-expanded="false">
-                <span class="expand-menu">+</span>
-                <span class="close-menu">&ndash;</span>
-            </button>
-            <ul id="sub-menu-1" role="region" tabindex="-1">
-                <li>
-                    <a href="#">
-                        <span>Pending Orders</span>
-                    </a>
-                </li>
-                <li class="has-sub-menu">
-                    <a href="#">
-                        <span>Completed Orders</span>
-                    </a>
-                    <button class="toggle-child-menu" aria-controls="sub-menu-2" aria-expanded="false">
-                        <span class="expand-menu">+</span>
-                        <span class="close-menu">&ndash;</span>
-                    </button>
-                    <ul id="sub-menu-2" role="region" tabindex="-1">
-                        <li>
-                            <a href="#">
-                                <span>Pending Orders</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span>Completed Orders</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span>Archived Orders</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <span>Archived Orders</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">
-                <span>Settings</span>
-            </a>
-        </li>
+        <x-laravel-admin-ui-navigation-menu-item
+            link-text="Products"
+        />
+
+        {{-- Example of a multi-level sub menu. --}}
+        <x-laravel-admin-ui-navigation-sub-menu
+            link-text="Orders"
+        >
+            <x-laravel-admin-ui-navigation-menu-item
+                link-text="Pending Orders"
+            />
+
+            <x-laravel-admin-ui-navigation-sub-menu
+                link-text="Completed Orders"
+            >
+                <x-laravel-admin-ui-navigation-menu-item
+                    link-text="Pending Orders"
+                />
+                <x-laravel-admin-ui-navigation-menu-item
+                    link-text="Completed Orders"
+                />
+                <x-laravel-admin-ui-navigation-menu-item
+                    link-text="Archived Orders"
+                />
+            </x-laravel-admin-ui-navigation-sub-menu>
+
+            <x-laravel-admin-ui-navigation-menu-item
+                link-text="Archived Orders"
+            />
+        </x-laravel-admin-ui-navigation-sub-menu>
+
+        <x-laravel-admin-ui-navigation-menu-item
+            link-text="Settings"
+        />
     </ul>
 </nav>
