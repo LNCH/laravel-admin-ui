@@ -17,25 +17,15 @@
             </div>
 
             {{-- Search Bar --}}
-            <div class="search-bar">
-                <x-laravel-admin-ui-search-form />
-            </div>
+            @include(config('laravel-admin-ui.views-namespace', 'laravel-admin-ui').'::partials.search-form')
 
             <div class="center-divider"></div>
 
             {{-- Notifications --}}
-            <div class="header-notifications">
-                <button class="header-button">HN</button>
-            </div>
+            @include(config('laravel-admin-ui.views-namespace', 'laravel-admin-ui').'::partials.header-notifications')
 
             {{-- Account Dropdown --}}
-            <div class="account-dropdown">
-                <button class="header-button">
-                    <span class="sr-only">Account Menu</span>
-                    <span class="user-icon"></span>
-                    <span class="user-name">Tom Lynch</span>
-                </button>
-            </div>
+            @include(config('laravel-admin-ui.views-namespace', 'laravel-admin-ui').'::partials.account-menu')
         </header>
 
         <section class="la_main-sidebar">
@@ -43,13 +33,13 @@
         </section>
 
         <main class="la_main-content">
-            <header class="la_content-header">
-                Content header
-            </header>
+{{--            <header class="la_content-header">--}}
+{{--                Content header--}}
+{{--            </header>--}}
             @yield('main_content')
-            <footer class="la_content-footer">
-                Copyright LNCH
-            </footer>
+{{--            <footer class="la_content-footer">--}}
+{{--                Copyright LNCH--}}
+{{--            </footer>--}}
         </main>
     </div>
 @endsection
