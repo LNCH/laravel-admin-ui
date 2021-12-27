@@ -2,18 +2,16 @@
     Desired features:
 
         - Commented header
-        - Ability to set menu titles
-        - Blade components for sections
-        - Multi level, with collapsible sections (responsive)
-        - Active indicators
         - Optional icons
         - ARIA tagging for screen readers
 --}}
 
 {{-- It's advisable to use a <nav> element for good semantic markup --}}
-<nav class="main-navigation">
+<nav class="main-navigation" aria-label="Main Site Navigation">
+
     {{-- Menu items are essentially <li> tags behind the scenes, thus a <ul> tag is required --}}
-    <ul>
+    <ul role="menubar" aria-label="Main Site Navigation">
+
         {{-- Example of an optional menu title, to separate the nav --}}
         <x-laravel-admin-ui-navigation-menu-title>
             Main
@@ -88,5 +86,7 @@
         <x-laravel-admin-ui-navigation-menu-item
             link-text="Settings"
         />
+
     </ul>
+
 </nav>

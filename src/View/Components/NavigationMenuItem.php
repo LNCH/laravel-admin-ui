@@ -2,10 +2,16 @@
 
 namespace LNCH\LaravelAdminUI\View\Components;
 
+use Illuminate\Support\Str;
 use Illuminate\View\Component;
 
 class NavigationMenuItem extends Component
 {
+    /**
+     * @var string The ID of this menu item. Can be set by the user or automatically generated.
+     */
+    public $id;
+
     /**
      * @var string|null The text that should be displayed in the menu item.
      */
@@ -42,6 +48,7 @@ class NavigationMenuItem extends Component
     public $wrapperClasses;
 
     public function __construct (
+        $id = null,
         $linkText = null,
         $counter = null,
         $route = null,
@@ -49,6 +56,7 @@ class NavigationMenuItem extends Component
         $active = false,
         $disabled = false
     ) {
+        $this->id = $id ?? Str::uuid();
         $this->linkText = $linkText;
         $this->counter = $counter;
         $this->route = $route ?? '#';
