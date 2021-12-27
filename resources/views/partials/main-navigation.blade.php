@@ -10,7 +10,9 @@
         - ARIA tagging for screen readers
 --}}
 
+{{-- It's advisable to use a <nav> element for good semantic markup --}}
 <nav class="main-navigation">
+    {{-- Menu items are essentially <li> tags behind the scenes, thus a <ul> tag is required --}}
     <ul>
         {{-- Example of an optional menu title, to separate the nav --}}
         <x-laravel-admin-ui-navigation-menu-title>
